@@ -27,6 +27,7 @@ import UIKit
     
     func settupButton() {
         self.imageView?.contentMode = UIViewContentMode.Center
+        self.imageView!.clipsToBounds = false
         self.setImage(UIImage(named: "icn_tweet_action_favorite_off"), forState: UIControlState.Normal)
         self.setImage(UIImage(named: "icn_tweet_action_favorite_on"), forState: UIControlState.Selected)
         self.addTarget(self, action: Selector("changeState"), forControlEvents: UIControlEvents.TouchUpInside)
@@ -49,7 +50,7 @@ import UIKit
                 sendActionsForControlEvents(UIControlEvents.ValueChanged)
             } else {
                 _animationInProgress = true
-                imageView?.layer.addAnimation(self.favAnimation(), forKey: "favAnimation")
+                imageView!.layer.addAnimation(self.favAnimation(), forKey: "favAnimation")
             }
         }
     }
